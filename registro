@@ -24,3 +24,107 @@ if pregunta == 'sí':
     boton.click()
 else:
     print('Es una lastima')
+
+
+
+
+
+############################################################################################################################################################################################################
+############################################################################################################################################################################################################
+############################################################################################################################################################################################################
+
+
+
+
+
+from PyQt5.QtCore import Qt
+from PyQt5.QtWidgets import QApplication, QWidget, QPushButton, QHBoxLayout, QVBoxLayout, QLabel, QRadioButton, QMessageBox
+
+app1 = QApplication([])
+ven1 = QWidget()
+ven1.setWindowTitle('Competición de Crazy People')
+
+pregunta1 = QLabel('¿En qué año el canal recibió su “botón de reproducción dorado” de YouTube?')
+boton1 = QRadioButton('2005')
+boton2 = QRadioButton('2010')
+boton3 = QRadioButton('2015')
+boton4 = QRadioButton('2020')
+lineaH1 = QHBoxLayout()
+lineaH2 = QHBoxLayout()
+lineaH3 = QHBoxLayout()
+lineaV1 = QVBoxLayout()
+
+lineaH1.addWidget(pregunta1, alignment=Qt.AlignCenter)
+lineaH2.addWidget(boton1, alignment=Qt.AlignCenter)
+lineaH2.addWidget(boton2, alignment=Qt.AlignCenter)
+lineaH3.addWidget(boton3, alignment=Qt.AlignCenter)
+lineaH3.addWidget(boton4, alignment=Qt.AlignCenter)
+lineaV1.addWidget(lineaH1, alignment=Qt.AlignCenter)
+lineaV1.addWidget(lineaH2, alignment=Qt.AlignCenter)
+lineaV1.addWidget(lineaH3, alignment=Qt.AlignCenter)
+
+#Manejar los clics
+victoria = QMessageBox()
+victoria.setText('Correcto')
+def mostrar_victora():
+    victoria.exec_()
+    victoria.setText('Correcto')
+    
+boton1.clicked.connect(mostrar_victoria)
+
+ven1.setLayout(lineaV1)
+ven1.show()
+app.exec_()
+
+
+
+
+############################################################################################################################################################################################################
+############################################################################################################################################################################################################
+############################################################################################################################################################################################################
+
+
+
+
+
+from PyQt5.QtCore import Qt
+from PyQt5.QtWidgets import QApplication, QWidget, QPushButton, QHBoxLayout, QVBoxLayout, QLabel, QRadioButton, QMessageBox, QGroupBox
+
+app1 = QApplication([])
+ven1 = QWidget()
+ven1.setWindowTitle('Competición de Crazy People')
+
+pregunta1 = QLabel('¿En qué año el canal recibió su “botón de reproducción dorado” de YouTube?')
+boton1 = QRadioButton('2005')
+boton2 = QRadioButton('2010')
+boton3 = QRadioButton('2015')
+boton4 = QRadioButton('2020')
+botonRespuesta = QPushButton('Responder')
+lineaH1 = QHBoxLayout()
+lineaV1 = QVBoxLayout()
+lineaV2 = QVBoxLayout()
+lineaH2 = QHBoxLayout()
+grupo = QGroupBox('Resopestas')
+
+lineaH1.addWidget(pregunta1)
+lineaV1.addWidget(boton1)
+lineaV1.addWidget(boton2)
+lineaV2.addWidget(boton3)
+lineaV2.addWidget(boton4)
+lineaH2.addLayout(lineaH1)
+lineaH2.addLayout(lineaV1)
+lineaH2.addLayout(lineaV2)
+grupo.setLayout(lineaH2)
+
+#Manejar los clics
+victoria = QMessageBox()
+victoria.setText('Correcto')
+def mostrar_victoria ():
+    victoria.exec_()
+    victoria.setText('Correcto')
+
+ven1.setLayout(grupo)
+ven1.show()
+app1.exec_()
+
+boton1.clicked.connect(mostrar_victoria)
